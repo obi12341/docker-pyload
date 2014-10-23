@@ -16,4 +16,8 @@ RUN git clone https://github.com/pyload/pyload.git /opt/pyload
 RUN echo "/opt/pyload/pyload-config" > /opt/pyload/module/config/configdir
 
 ADD pyload-config/ /opt/pyload/pyload-config
+
+EXPOSE 8000
 VOLUMES /opt/pyload/pyload-config
+
+CMD ["/opt/pyload/pyLoadCore.py"]
