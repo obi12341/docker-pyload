@@ -32,6 +32,12 @@ Notice to replace ```<host directory>``` with your directory path on the host. S
 docker run -d -v /tmp/Downloads:/opt/pyload/Downloads -P obi12341/pyload:v0.4.9
 ```
 
+After the docker has created you can login via the webinterface with:
+
+```
+User: pyload
+Password: pyload
+```
 
 
 [official pyload]:http://pyload.org/
