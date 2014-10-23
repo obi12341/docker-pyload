@@ -14,22 +14,25 @@ Source [official pyload]
 Install
 ----
 Install is easy as all docker images
+
 ```sh
-docker pull obi12341/pyload:v0.4.9
+docker pull obi12341/pyload:0.4.9
 ```
 
 Run
 ----
-```sh
-docker run -d -P obi12341/pyload:v0.4.9
 ```
-You can link your Downloads to your host very easy like that: 
+docker run -d -P obi12341/pyload:0.4.9
+```
+You can link your Downloads to your host very easy like that:
+
 ```sh
-docker run -d -v <host directoy>:/opt/pyload/Downloads -P obi12341/pyload:v0.4.9
+docker run -d -v <host directoy>:/opt/pyload/Downloads -P obi12341/pyload:0.4.9
 ```
 Notice to replace ```<host directory>``` with your directory path on the host. So if you want to store your Downloads in ```/tmp/Downloads``` then your command would look like this:
+
 ```sh
-docker run -d -v /tmp/Downloads:/opt/pyload/Downloads -P obi12341/pyload:v0.4.9
+docker run -d -v /tmp/Downloads:/opt/pyload/Downloads -P obi12341/pyload:0.4.9
 ```
 
 After the docker has created you can login via the webinterface with:
@@ -41,3 +44,4 @@ Password: pyload
 
 
 [official pyload]:http://pyload.org/
+
