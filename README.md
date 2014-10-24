@@ -19,12 +19,15 @@ Install is easy as all docker images
 docker pull writl/pyload:0.4.9
 ```
 
-Run
+Running
 ----
 
 ```sh
 docker run -d -P writl/pyload:0.4.9
 ```
+
+Configuration
+----
 You can link your Downloads to your host very easy like that:
 
 ```sh
@@ -35,7 +38,13 @@ Notice to replace ```<host directory>``` with your directory path on the host. S
 ```sh
 docker run -d -v /tmp/Downloads:/opt/pyload/Downloads -P writl/pyload:0.4.9
 ```
+If you want to have your configuration persistent you have to link the configuration directory outside of the container. This can happen like this:
 
+```sh
+docker run -d -v <host directoy>:/opt/pyload/pyload-config -P writl/pyload:0.4.9
+```
+Finally
+----
 After the docker has created you can login via the webinterface with:
 
 ```sh
