@@ -21,7 +21,8 @@ docker pull writl/pyload:0.4.9
 
 Run
 ----
-```
+
+```sh
 docker run -d -P writl/pyload:0.4.9
 ```
 You can link your Downloads to your host very easy like that:
@@ -37,9 +38,9 @@ docker run -d -v /tmp/Downloads:/opt/pyload/Downloads -P writl/pyload:0.4.9
 
 After the docker has created you can login via the webinterface with:
 
-```
-User: pyload
-Password: pyload
+```sh
+USER=pyload
+PASSWORD=pyload
 ```
 
 
