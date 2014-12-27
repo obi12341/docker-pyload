@@ -19,6 +19,8 @@ ADD pyload-config/ /tmp/pyload-config
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
 
+RUN mv /opt/pyload/module/Utils.py /opt/pyload/module/utils.py
+
 EXPOSE 8000
 VOLUME /opt/pyload/pyload-config
 VOLUME /opt/pyload/Downloads
