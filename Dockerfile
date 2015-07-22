@@ -10,10 +10,10 @@ RUN apt-get update && apt-get install -y python \
         unrar-free \
         gocr \
         python-django \
-        git
+        git \
+        && apt-get clean
 
 RUN git clone https://github.com/pyload/pyload.git /opt/pyload
-RUN cd /opt/pyload && git checkout tags/v0.4.9
 RUN echo "/opt/pyload/pyload-config" > /opt/pyload/module/config/configdir
 ADD pyload-config/ /tmp/pyload-config
 ADD run.sh /run.sh
