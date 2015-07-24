@@ -1,5 +1,6 @@
 PyLoad
 =========
+[![](https://badge.imagelayers.io/writl/pyload:latest.svg)](https://imagelayers.io/?images=writl/pyload:latest 'Get your own badge on imagelayers.io')
 
 Introduction
 ----
