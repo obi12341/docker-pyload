@@ -1,13 +1,17 @@
 FROM ubuntu:trusty
 MAINTAINER Patrick Oberdorf "patrick@oberdorf.net"
 
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ trusty-security multiverse" >> /etc/apt/sources.list
+RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ trusty-security multiverse" >> /etc/apt/sources.list
+
+RUN cat /etc/apt/sources.list
 RUN apt-get update && apt-get install -y python \
         python-pycurl \
         python-crypto \
         tesseract-ocr \
         python-beaker \
         python-imaging \
-        unrar-free \
+        unrar \
         gocr \
         python-django \
         git \
