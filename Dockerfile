@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y python \
         gocr \
         python-django \
         git \
+        rhino \
         && apt-get clean
 
 RUN git clone https://github.com/pyload/pyload.git /opt/pyload
