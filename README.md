@@ -48,7 +48,7 @@ docker run -d -v <host directoy>:/opt/pyload/pyload-config -P dastrasmue/rpi-pyl
 
 Example, if all possible config options are used:
 ```sh
-docker run -d -p 8000:8000 -p 7227:7227 -v /opt/pyload/downloads:/opt/pyload/Downloads -v /opt/pyload/config:/opt/pyload/pyload-config dastrasmue/rpi-pyload
+docker run -d -p 8000:8000 -p 7227:7227 -v /opt/pyload/downloads:/opt/pyload/Downloads -v /opt/pyload/config:/opt/pyload/pyload-config --name pyload dastrasmue/rpi-pyload
 ```
 
 
