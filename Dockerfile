@@ -21,8 +21,8 @@ RUN mkdir ./unrar \
 	&& cd unrar \
 	&& apt-get build-dep unrar-nonfree -y \
 	&& apt-get source -b unrar-nonfree \
-	&& dpkg -i unrar_*_armhf.deb
-	&& cd ..
+	&& dpkg -i unrar_*_armhf.deb \
+	&& cd .. \
 	&& rm -r ./unrar
 
 RUN git clone https://github.com/pyload/pyload.git /opt/pyload
