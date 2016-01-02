@@ -1,6 +1,6 @@
 PyLoad
 =========
-[![](https://badge.imagelayers.io/writl/pyload:latest.svg)](https://imagelayers.io/?images=writl/pyload:latest 'Get your own badge on imagelayers.io')
+This is a fork of writl/pyload (https://github.com/obi12341/docker-pyload), which brings this Dock to the Raspberry Pi.
 
 Introduction
 ----
@@ -17,14 +17,14 @@ Install
 Install is easy as all docker images
 
 ```sh
-docker pull writl/pyload:0.4.9
+docker pull dastrasmue/rpi-pyload
 ```
 
 Running
 ----
 
 ```sh
-docker run -d -P writl/pyload:0.4.9
+docker run -d -P dastrasmue/rpi-pyload
 ```
 
 Configuration
@@ -32,17 +32,17 @@ Configuration
 You can link your Downloads to your host very easy like that:
 
 ```sh
-docker run -d -v <host directoy>:/opt/pyload/Downloads -P writl/pyload:0.4.9
+docker run -d -v <host directoy>:/opt/pyload/Downloads -P dastrasmue/rpi-pyload
 ```
 Notice to replace ```<host directory>``` with your directory path on the host. So if you want to store your Downloads in ```/tmp/Downloads``` then your command would look like this:
 
 ```sh
-docker run -d -v /tmp/Downloads:/opt/pyload/Downloads -P writl/pyload:0.4.9
+docker run -d -v /tmp/Downloads:/opt/pyload/Downloads -P dastrasmue/rpi-pyload
 ```
 If you want to have your configuration persistent you have to link the configuration directory outside of the container. This can happen like this:
 
 ```sh
-docker run -d -v <host directoy>:/opt/pyload/pyload-config -P writl/pyload:0.4.9
+docker run -d -v <host directoy>:/opt/pyload/pyload-config -P dastrasmue/rpi-pyload
 ```
 Finally
 ----
