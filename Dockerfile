@@ -31,9 +31,7 @@ ADD pyload-config/ /tmp/pyload-config
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
 
-EXPOSE 8000
-EXPOSE 7227
-VOLUME /opt/pyload/pyload-config
-VOLUME /opt/pyload/Downloads
+EXPOSE 8000 7227
+VOLUME ["/opt/pyload/pyload-config", "/opt/pyload/Downloads"]
 
 CMD ["/run.sh"]
