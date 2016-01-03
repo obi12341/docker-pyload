@@ -1,6 +1,4 @@
-FROM kutsudock/rpi-raspbian:latest
-
-RUN echo "deb-src http://archive.raspbian.org/raspbian wheezy main contrib non-free rpi" >> /etc/apt/sources.list
+FROM sdhibit/rpi-raspbian:latest
 
 RUN apt-get update \
 	&& apt-get upgrade --force-yes --yes \
@@ -14,22 +12,21 @@ RUN apt-get update \
 		python-django \
 		git \
 		rhino \
+		--no-install-recommends \
 	&& apt-get autoremove --force-yes --yes \
-	&& apt-get clean
-	
-RUN mkdir ./unrar \
-	&& cd unrar \
-	&& apt-get build-dep unrar-nonfree -y \
-	&& apt-get source -b unrar-nonfree \
-	&& dpkg -i unrar_*_armhf.deb \
-	&& cd .. \
-	&& rm -r ./unrar
+	&& apt-get -y autoclean \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/pyload/pyload.git /opt/pyload
-RUN echo "/opt/pyload/pyload-config" > /opt/pyload/module/config/configdir
-ADD pyload-config/ /tmp/pyload-config
+ADD unrar_4.1.4-1+deb7u1_armhf.deb /tmp/unrar.deb
+
+RUN dpkg -i /tmp/unrar.deb && rm /tmp/unrar.deb
+
 ADD run.sh /run.sh
-RUN chmod +x /run.sh
+RUN git clone https://github.com/pyload/pyload.git /opt/pyload \
+	&& echo "/opt/pyload/pyload-config" > /opt/pyload/module/config/configdir \
+	&& chmod +x /run.sh
+ADD pyload-config/ /tmp/pyload-config
 
 EXPOSE 8000 7227
 VOLUME ["/opt/pyload/pyload-config", "/opt/pyload/Downloads"]
