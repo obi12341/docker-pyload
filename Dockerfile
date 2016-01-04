@@ -1,4 +1,4 @@
-FROM sdhibit/rpi-raspbian:latest
+FROM hypriot/rpi-python:latest
 
 RUN apt-get update \
 	&& apt-get upgrade --force-yes --yes \
