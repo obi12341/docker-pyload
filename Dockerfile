@@ -1,4 +1,4 @@
-FROM hypriot/rpi-python:latest
+FROM armv7/armhf-debian
 
 RUN apt-get update \
 	&& apt-get upgrade --force-yes --yes \
