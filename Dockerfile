@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y python \
         rhino \
         && apt-get clean
 
-RUN git clone https://github.com/pyload/pyload.git /opt/pyload
+RUN git clone https://github.com/mariusbaumann/pyload.git /opt/pyload
 RUN echo "/opt/pyload/pyload-config" > /opt/pyload/module/config/configdir
 ADD pyload-config/ /tmp/pyload-config
 ADD run.sh /run.sh
