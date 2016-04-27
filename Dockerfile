@@ -4,7 +4,6 @@ MAINTAINER Patrick Oberdorf "patrick@oberdorf.net"
 RUN echo "deb http://archive.ubuntu.com/ubuntu/ trusty-security multiverse" >> /etc/apt/sources.list
 RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ trusty-security multiverse" >> /etc/apt/sources.list
 
-RUN cat /etc/apt/sources.list
 RUN apt-get update && apt-get install -y python \
         python-pycurl \
         python-crypto \
@@ -14,12 +13,16 @@ RUN apt-get update && apt-get install -y python \
         unrar \
         gocr \
         python-django \
+        python-pyxmpp \
         git \
         rhino \
-        && apt-get clean
+        && apt-get clean \
+        && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN git clone https://github.com/pyload/pyload.git /opt/pyload
-RUN echo "/opt/pyload/pyload-config" > /opt/pyload/module/config/configdir
+RUN git clone https://github.com/pyload/pyload.git /opt/pyload \
+        && cd /opt/pyload \
+        && echo "/opt/pyload/pyload-config" > /opt/pyload/module/config/configdir
+
 ADD pyload-config/ /tmp/pyload-config
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
