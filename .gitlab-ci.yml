@@ -1,0 +1,8 @@
+image: ruby:2.3
+
+test:
+  stage: test
+  script:
+  - gem install serverspec
+  - gem install docker-api
+  - rspec Dockerfile_spec.rb
