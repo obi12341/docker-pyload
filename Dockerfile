@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y python \
 	python-pyxmpp \
         git \
         rhino \
+	wget \
         && apt-get clean \
         && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -29,7 +30,9 @@ RUN git clone https://github.com/pyload/pyload.git /opt/pyload \
 	&& cd /opt/pyload \
 	&& git checkout v0.4.9 \
 	&& echo "/opt/pyload/pyload-config" > /opt/pyload/module/config/configdir \
-	&& mv /opt/pyload/module/Utils.py /opt/pyload/module/utils.py
+	&& mv /opt/pyload/module/Utils.py /opt/pyload/module/utils.py \
+	&& rm module/plugins/hooks/UpdateManager.py \
+	&& wget https://raw.githubusercontent.com/pyload/pyload/f16590e26254b5a39ecbc36b4ac0fa1951d12389/module/plugins/hooks/UpdateManager.py -O module/plugins/hooks/UpdateManager.py
 
 ADD pyload-config/ /tmp/pyload-config
 ADD run.sh /run.sh
