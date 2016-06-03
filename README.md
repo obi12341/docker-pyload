@@ -1,6 +1,6 @@
 PyLoad
 =========
-[![](https://badge.imagelayers.io/writl/pyload:latest.svg)](https://imagelayers.io/?images=writl/pyload:latest 'Get your own badge on imagelayers.io')
+[![Build Status](https://travis-ci.org/obi12341/docker-pyload.svg?branch=release%2Fv0.4.9)](https://travis-ci.org/obi12341/docker-pyload)
 
 Introduction
 ----
