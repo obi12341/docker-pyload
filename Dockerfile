@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y python \
 	python-thrift \
 	python-feedparser \
 	python-beautifulsoup \
+	python-pip \
 	tesseract-ocr \
 	python-beaker \
 	unrar \
@@ -21,7 +22,8 @@ RUN apt-get update && apt-get install -y python \
 	git \
 	rhino \
 	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+	&& pip install Send2Trash
 
 # Set the locale
 RUN locale-gen en_US.UTF-8
