@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y python \
 	python-django \
 	git \
 	rhino \
+	gosu \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
 	&& pip install Send2Trash
