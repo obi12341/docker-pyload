@@ -13,4 +13,16 @@ then
         rm /opt/pyload/pyload-config/pyload.pid
 fi
 
-exec /opt/pyload/pyLoadCore.py
+[ -z "$UID" ] && UID=0
+[ -z "$GID" ] && GID=0
+
+# Appending a line at the end of /etc/passwd /etc/group is safer
+# than using adduser because if UID and GID are already present,
+# adduser will fail while this will work as expected.
+echo -e "appuser:x:${UID}:${GID}:appuser:/app:/bin/false\n" >> /etc/passwd
+echo -e "appgroup:x:${GID}:appuser\n" >> /etc/group
+
+chown -R appuser:appgroup /opt/pyload
+
+exec gosu appuser python /opt/pyload/pyLoadCore.py
+
