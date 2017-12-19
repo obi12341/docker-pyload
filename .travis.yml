@@ -1,13 +1,13 @@
-sudo: required
-
-language: ruby
+language: python
+python:
+  - 2.7
 
 services:
   - docker
 
-before_install:
-  - gem install serverspec
-  - gem install docker-api
-
+install:
+  - docker build -t pyload .
+  - docker run -d -p 127.0.0.1:80:80 --name pyload pyload
+  
 script:
-  - rspec Dockerfile_spec.rb
+  - docker ps | grep -q pyload
