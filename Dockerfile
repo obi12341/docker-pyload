@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y python \
 	tesseract-ocr \
 	python-beaker \
 	unrar \
+	curl \
 	gocr \
 	python-django \
 	git \
