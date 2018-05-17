@@ -12,7 +12,7 @@ Despite its strict restriction it is packed full of features just like webinterf
 
 pyLoad is divided into core and clients, to make it easily remote accessible. Currently there are a webinterface, command line interface, and a GUI written in Qt.
 
-Source [official pyload]
+Source [official pyload](https://pyload.net/).
 
 Install
 ----
