@@ -1,0 +1,12 @@
+version: "2"
+services:
+    pyload:
+      image: writl/pyload:latest
+      container_name: pyload
+      network_mode: host
+      environment:
+        - UID=1000
+        - GID=1000
+      volumes:
+        - /path/to/config:/opt/pyload/pyload-config
+        - /path/to/data:/opt/pyload/Downloads
