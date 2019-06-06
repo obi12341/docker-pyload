@@ -70,7 +70,8 @@ services:
     pyload:
       image: writl/pyload:latest
       container_name: pyload
-      network_mode: host
+      ports:
+        - 8000:8000
       environment:
         - UID=1000
         - GID=1000
