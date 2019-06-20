@@ -49,6 +49,8 @@ docker run -d -v <host directoy>:/opt/pyload/pyload-config -P writl/pyload:lates
 
 By default, pyload will be run as root, and will download files with uid 0 and gid 0. If you want to change this behavior, you can specify the UID and GID that will be used for the downloaded files by using ENV VARS
 
+Docker run command
+-----
 ```sh
 docker \
     run \
@@ -60,10 +62,29 @@ docker \
     -P \
     writl/pyload:latest
 ```
+Sample compose file
+-----
+```yaml
+version: "2"
+services:
+    pyload:
+      image: writl/pyload:latest
+      container_name: pyload
+      ports:
+        - 8000:8000
+      environment:
+        - UID=1000
+        - GID=1000
+      volumes:
+        - /path/to/config:/opt/pyload/pyload-config
+        - /path/to/data:/opt/pyload/Downloads
+
+```
+
 
 Finally
 ----
-After the docker has created you can login via the webinterface with:
+When the container has been created you can login via the webinterface at **\<host-ip>:8000** with:
 
 ```sh
 USER=pyload
