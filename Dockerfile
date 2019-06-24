@@ -46,4 +46,5 @@ EXPOSE 8000
 VOLUME /opt/pyload/pyload-config
 VOLUME /opt/pyload/Downloads
 
+HEALTHCHECK CMD curl --fail http://localhost:8000/ || exit 1
 CMD ["/run.sh"]
