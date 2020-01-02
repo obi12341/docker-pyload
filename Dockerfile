@@ -1,13 +1,17 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 MAINTAINER Patrick Oberdorf "patrick@oberdorf.net"
 
+ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBCONF_NONINTERACTIVE_SEEN true
+
+RUN debconf-set-selections preseed-locals.txt
 RUN apt-get update && apt-get install -y python \
 	locales \
 	python-setuptools \
 	python-requests \
 	python-pycurl \
 	python-crypto \
-	python-imaging \
+	python-pil \
 	python-pyxmpp \
 	python-jinja2 \
 	python-thrift \
