@@ -2,6 +2,7 @@ FROM ubuntu:bionic
 MAINTAINER Patrick Oberdorf "patrick@oberdorf.net"
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV VERSION=0.4.20
 
 RUN apt-get update && apt-get install -y python \
 	locales \
@@ -37,7 +38,7 @@ ENV LC_ALL en_US.UTF-8
 
 RUN git clone https://github.com/pyload/pyload.git /opt/pyload \
         && cd /opt/pyload \
-        && git checkout stable \
+        && git checkout $VERSION \
         && echo "/opt/pyload/pyload-config" > /opt/pyload/module/config/configdir
 
 ADD pyload-config/ /tmp/pyload-config
