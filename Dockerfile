@@ -1,5 +1,7 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 MAINTAINER Patrick Oberdorf "patrick@oberdorf.net"
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y python \
 	locales \
@@ -7,7 +9,7 @@ RUN apt-get update && apt-get install -y python \
 	python-requests \
 	python-pycurl \
 	python-crypto \
-	python-imaging \
+	python-pil \
 	python-pyxmpp \
 	python-jinja2 \
 	python-thrift \
