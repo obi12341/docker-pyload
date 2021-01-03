@@ -5,6 +5,8 @@ services:
       container_name: pyload
       ports:
         - 8000:8000
+        - 9666:9666
+        - 7227:7227
       environment:
         - UID=1000
         - GID=1000
