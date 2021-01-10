@@ -18,7 +18,8 @@ RUN apt-get update && apt-get install -y python \
 	python-pip \
 	tesseract-ocr \
 	python-beaker \
-	unrar \
+	p7zip-full \
+	p7zip-rar \
 	curl \
 	gocr \
 	python-django \
