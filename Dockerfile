@@ -1,13 +1,14 @@
 FROM ubuntu:bionic
 MAINTAINER Patrick Oberdorf "patrick@oberdorf.net"
 
-ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive PYCURL_SSL_LIBRARY=openssl
 
 RUN apt-get update && apt-get install -y python \
+	libcurl4-openssl-dev \
+	libssl-dev \
 	locales \
 	python-setuptools \
 	python-requests \
-	python-pycurl \
 	python-crypto \
 	python-pil \
 	python-pyxmpp \
@@ -28,7 +29,7 @@ RUN apt-get update && apt-get install -y python \
 	gosu \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-	&& pip install Send2Trash
+	&& pip install Send2Trash pycurl
 
 # Set the locale
 RUN locale-gen en_US.UTF-8
